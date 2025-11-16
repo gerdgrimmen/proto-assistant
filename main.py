@@ -1,7 +1,11 @@
-# notes version 0.0.0
+# notes version 0.1.0
 import datetime
-now = datetime.datetime.now()
-print(now.strftime("%Y-%m-%d %H:%M:%S"))
-
 import time
-time.sleep(3)
+
+while True:
+    now = datetime.datetime.now()
+    current_time = now.strftime("%Y-%m-%d %H:%M:%S") 
+    print(current_time)
+    with open("time.txt", "a") as time_file:
+        time_file.write(current_time+"\n")
+    time.sleep(60)
