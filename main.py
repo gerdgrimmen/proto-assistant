@@ -1,4 +1,4 @@
-# notes version 0.1.0
+# notes version 0.1.1
 import datetime
 import time
 
@@ -19,12 +19,12 @@ def check_time(hours, minutes):
 if __name__ == "__main__":
     with open("data.txt", "r") as data_file:
         for line in data_file:
-            splitted_line = line.split(":")
-            if not splitted_line[0] in command_table.keys():
-                command_table[splitted_line[0]] = {}
-            if not splitted_line[1] in command_table[splitted_line[0]].keys():
-                command_table[splitted_line[0]][splitted_line[1]] = []
-            command_table[splitted_line[0]][splitted_line[1]].append({splitted_line[2]: splitted_line[3]})
+            hours,minutes,command,values = line.split(":")
+            if not hours in command_table.keys():
+                command_table[hours] = {}
+            if not minutes in command_table[hours].keys():
+                command_table[hours][minutes] = []
+            command_table[hours][minutes].append({command: values.strip("\n")})
     print(command_table)
 
 while True:

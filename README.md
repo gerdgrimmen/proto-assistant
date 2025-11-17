@@ -23,7 +23,9 @@ Contributors names and contact info
 ex. Gerd Grimmen (F.KU)
 
 ## Version History
-*
+
+* 0.1.1
+    * Code Cleanup for readability
 * 0.1
     * Proof of Concept - Running command on before entered time
 
