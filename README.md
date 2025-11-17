@@ -23,8 +23,9 @@ Contributors names and contact info
 ex. Gerd Grimmen (F.KU)
 
 ## Version History
+*
 * 0.1
-    * Nothing here to see
+    * Proof of Concept - Running command on before entered time
 
 ## License
 
