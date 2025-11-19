@@ -1,4 +1,4 @@
-# notes version 0.1.1
+# notes version 0.2.0
 import datetime
 import time
 
@@ -16,18 +16,27 @@ def check_time(hours, minutes):
         return False
     return True
 
+def check_for_new_commands():
+    with open("command.txt", "r") as data_file:
+        for line in data_file:
+            line_to_command(line)
+
+def line_to_command(line):
+    hours,minutes,command,values = line.split(":")
+    if not hours in command_table.keys():
+        command_table[hours] = {}
+    if not minutes in command_table[hours].keys():
+        command_table[hours][minutes] = []
+    command_table[hours][minutes].append({command: values.strip("\n")})
+
 if __name__ == "__main__":
     with open("data.txt", "r") as data_file:
         for line in data_file:
-            hours,minutes,command,values = line.split(":")
-            if not hours in command_table.keys():
-                command_table[hours] = {}
-            if not minutes in command_table[hours].keys():
-                command_table[hours][minutes] = []
-            command_table[hours][minutes].append({command: values.strip("\n")})
+            line_to_command(line)
     print(command_table)
 
 while True:
+    check_for_new_commands()
     now = datetime.datetime.now()
     current_time = now.strftime("%H:%M")
     print(current_time)
