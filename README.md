@@ -23,7 +23,9 @@ Contributors names and contact info
 ex. Gerd Grimmen (F.KU)
 
 ## Version History
-
+* 0.2.0
+    * Small refactor
+    * add the possibility to add commands while running the service via command.txt
 * 0.1.1
     * Code Cleanup for readability
 * 0.1
